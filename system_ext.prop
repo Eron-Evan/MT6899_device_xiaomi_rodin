@@ -19,3 +19,6 @@ vendor.rild.libpath=mtk-ril.so
 ro.mi.os.version.code=3
 ro.mi.os.version.name=OS3.0
 ro.mi.os.version.incremental=OS3.0.300.0.WOJEUXM
+
+# Memtag
+persist.arm64.memtag.default=off
