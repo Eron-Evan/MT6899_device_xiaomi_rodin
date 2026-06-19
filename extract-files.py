@@ -160,6 +160,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libprocessgroup_shim.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
         .call(blob_fixup_graphic_buffer_size),
+    ('vendor/lib64/libcodec2_mtk_vdec.so', 'vendor/lib64/libcodec2_mtk_venc.so'): blob_fixup()
+        .replace_needed('libformatter.so', 'libformatter-v33.so'),
     ('vendor/lib64/mt6899/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'odm/lib64/libwa_widelens_undistort.so',
      'odm/lib64/libarcsoft_beautyshot.so',
