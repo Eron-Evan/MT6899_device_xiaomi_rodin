@@ -233,6 +233,7 @@ PRODUCT_COPY_FILES += \
 
 # fstab
 PRODUCT_PACKAGES += \
+    chipinfo \
     fstab.mt6899 \
     fstab.mt6899.vendor_ramdisk
 

@@ -1133,10 +1133,6 @@ system_ext/framework/camerax-vendor-extensions.jar:system/framework/camerax-vend
 vendor/etc/permissions/camera_extensions.xml
 vendor/framework/androidx.camera.extensions.impl.jar
 
-# Chipinfo
-vendor/bin/chipinfo
-vendor/etc/init/chipinfo_init.rc
-
 # CIT
 odm/etc/cit_param_config.json
 product/app/MiuiCit/MiuiCit.apk
