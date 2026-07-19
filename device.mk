@@ -324,6 +324,7 @@ PRODUCT_PACKAGES += \
     SettingsResOverlayRodin \
     SystemUIOverlayRodin \
     TetheringConfigOverlay \
+    SettingsProviderOverlayRodin \
     UnprocessedAudio
 
 # Parts
