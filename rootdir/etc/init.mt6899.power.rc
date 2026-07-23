@@ -212,3 +212,26 @@ service batterysecret /vendor/bin/batterysecret
     user root
     group system system wakelock
     disabled
+
+# ============================================================
+# PocoParts PQ hid — a system_app altal irt tukor-propok
+# atmasolasa a vendor PQ propokba (init barmit irhat)
+# ============================================================
+
+on property:persist.pocoparts.pq.sr_en=*
+    setprop persist.vendor.sys.pq.ultrares.en ${persist.pocoparts.pq.sr_en}
+
+on property:persist.pocoparts.pq.sr_str=*
+    setprop persist.vendor.sys.pq.ultrares.strength ${persist.pocoparts.pq.sr_str}
+
+on property:persist.pocoparts.pq.aipq_en=*
+    setprop persist.vendor.sys.pq.airegionpq_adaptive.en ${persist.pocoparts.pq.aipq_en}
+
+on property:persist.pocoparts.pq.shp_en=*
+    setprop persist.vendor.sys.pq.shp.en ${persist.pocoparts.pq.shp_en}
+
+on property:persist.pocoparts.pq.shp_str=*
+    setprop persist.vendor.sys.pq.shp.strength ${persist.pocoparts.pq.shp_str}
+
+on property:persist.pocoparts.pq.hdr_en=*
+    setprop persist.vendor.sys.pq.hdr.en ${persist.pocoparts.pq.hdr_en}

@@ -15,8 +15,10 @@ import android.util.Log
 import android.view.Display
 import android.view.Display.HdrCapabilities
 import com.xiaomi.settings.display.ColorService
-import com.xiaomi.settings.touchsampling.TouchSamplingService;
-import com.xiaomi.settings.touchsampling.TouchSamplingTileService;
+import com.xiaomi.settings.refreshrate.RefreshService
+import com.xiaomi.settings.touchsampling.TouchSamplingService
+import com.xiaomi.settings.touchsampling.TouchSamplingTileService
+import com.xiaomi.settings.battery.ChargingLimitService
 
 /** Everything begins at boot. */
 class BootCompletedReceiver : BroadcastReceiver() {
@@ -46,8 +48,8 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Touch Sampling qs
         context.startServiceAsUser(
-        Intent(context, TouchSamplingTileService::class.java),
-        UserHandle.CURRENT
+            Intent(context, TouchSamplingTileService::class.java),
+            UserHandle.CURRENT
         )
 
         // Override HDR types to enable Dolby Vision
@@ -58,5 +60,11 @@ class BootCompletedReceiver : BroadcastReceiver() {
             HdrCapabilities.HDR_TYPE_HLG,
             HdrCapabilities.HDR_TYPE_HDR10_PLUS
         ))
+
+        // Battery
+        context.startServiceAsUser(Intent(context, ChargingLimitService::class.java), UserHandle.CURRENT)
+
+        // Per App Refresh Rate
+        context.startServiceAsUser(Intent(context, RefreshService::class.java), UserHandle.CURRENT)
     }
 }

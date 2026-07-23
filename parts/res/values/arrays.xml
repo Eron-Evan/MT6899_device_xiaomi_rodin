@@ -115,4 +115,13 @@
         <item>5000</item>
         <item>10000</item>
     </string-array>
+
+    <!-- Resolution — spinner entries (must match state indices 0-4, Custom at 4) -->
+    <string-array name="system_resolution_entries">
+        <item>Default (native)</item>
+        <item>480p</item>
+        <item>540p</item>
+        <item>720p</item>
+        <item>Custom…</item>
+    </string-array>
 </resources>

@@ -1,0 +1,3 @@
+# PocoParts: a hid-property-k irasa/olvasasa
+set_prop(system_app, pocoparts_prop)
+get_prop(system_app, pocoparts_prop)

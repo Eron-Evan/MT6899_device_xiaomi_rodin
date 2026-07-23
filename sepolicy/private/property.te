@@ -1,0 +1,8 @@
+# PocoParts hid-property-k (PQ) — a system_app irhatja, az init tukrozi
+# a vendor persist.vendor.sys.pq.* propokba (lasd init trigger blokk).
+#
+# FONTOS: a tipust a system_internal_prop() makroval KELL deklaralni —
+# ez adja ra a system_property_type attributumot, ami nelkul a platform
+# neverallow-k (property.te:164 es :488) meg az init/dumpstate gyari
+# szabalyait is megfogjak ezen a tipuson.
+system_internal_prop(pocoparts_prop)

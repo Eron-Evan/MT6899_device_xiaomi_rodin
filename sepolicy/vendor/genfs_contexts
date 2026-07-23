@@ -114,3 +114,16 @@ genfscon sysfs /devices/virtual/touch/touch_dev/touch_irq_no u:object_r:sysfs_to
 
 # USB
 genfscon sysfs /devices/platform/rt-pd-manager/typec/port0                         u:object_r:sysfs_usb_nonplat:s0
+
+# Core Control
+genfscon sysfs /devices/system/cpu/cpu0/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu1/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu2/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu3/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu4/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu5/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu6/online u:object_r:vendor_sysfs_corecontrol:s0
+genfscon sysfs /devices/system/cpu/cpu7/online u:object_r:vendor_sysfs_corecontrol:s0
+
+# Charging Control
+genfscon sysfs /devices/platform/battery-manager/power_supply/battery/input_suspend u:object_r:vendor_sysfs_chargecontrol:s0

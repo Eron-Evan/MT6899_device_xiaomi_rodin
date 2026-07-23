@@ -31,3 +31,9 @@ type vendor_touchfeature_device, dev_type;
 type sysfs_touch_hostprocess, fs_type, sysfs_type;
 type hal_touchfeature_xiaomi_default, domain;
 type hal_touchfeature_xiaomi_default_exec, exec_type, file_type, vendor_file_type;
+
+# Charging Control
+type vendor_sysfs_chargecontrol, fs_type, sysfs_type;
+
+# Core Control
+type vendor_sysfs_corecontrol, fs_type, sysfs_type;

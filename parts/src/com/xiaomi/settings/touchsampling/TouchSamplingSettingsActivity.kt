@@ -18,17 +18,20 @@ package com.xiaomi.settings.touchsampling
 
 import android.os.Bundle
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
-import com.xiaomi.settings.R
 
 class TouchSamplingSettingsActivity : CollapsingToolbarBaseActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game_bar_app_selector)
-        title = getString(R.string.htsr_enable_title)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.content_frame, TouchSamplingSettingsFragment(), TAG_HTSR)
+            supportFragmentManager
+                .beginTransaction()
+                .replace(
+                    com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                    TouchSamplingSettingsFragment(),
+                    TAG_HTSR
+                )
                 .commit()
         }
     }

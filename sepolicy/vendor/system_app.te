@@ -22,3 +22,20 @@ rw_dir_file(system_app, sysfs_therm)
 
 # CPU
 allow system_app proc_stat:file { read open getattr };
+
+# Core Control
+allow system_app vendor_sysfs_corecontrol:dir search;
+allow system_app vendor_sysfs_corecontrol:file { getattr open read write };
+allow system_app vendor_sysfs_corecontrol:file rw_file_perms;
+
+# Charging Control
+allow system_app sysfs_batteryinfo:dir search;
+allow system_app sysfs_batteryinfo:lnk_file read;
+allow system_app vendor_sysfs_chargecontrol:file rw_file_perms;
+
+# Visual Enhancement (MiraVision PQ)
+# A vendor prop IRASA neverallow-tiltott appdomainbol — az iras a
+# persist.pocoparts.pq.* tukor-propokon at megy (sepolicy/private +
+# init trigger az init_mt6899_power.rc vegen). Itt csak az OLVASAS kell,
+# hogy a UI a valos vendor-allapotot mutassa:
+get_prop(system_app, vendor_mtk_pq_prop)

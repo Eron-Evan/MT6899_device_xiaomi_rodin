@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+@file:JvmName("FileUtils")
+
 package com.xiaomi.settings.utils
 
 import android.util.Log
@@ -30,6 +32,22 @@ fun writeLine(fileName: String, value: String): Boolean =
     runCatching { File(fileName).writeText(value) }
         .onFailure { e -> Log.e(TAG, "Could not write to file $fileName", e) }
         .isSuccess
+
+/*
+ * Writes the given value into the given file (Java-compat alias of writeLine,
+ * used by the AutoHbm/HBM services).
+ *
+ * @return true on success, false on failure
+ */
+fun writeValue(fileName: String, value: String): Boolean = writeLine(fileName, value)
+
+/*
+ * Reads the first line from the given file, returning the supplied default
+ * on any failure (missing file, permission denied, empty file).
+ * Java-compat helper used by the AutoHbm/HBM services.
+ */
+fun getFileValue(fileName: String, defaultValue: String?): String? =
+    readOneLine(fileName) ?: defaultValue
 
 /*
  * Checks whether the given file exists

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="pq_intro"
+        android:title="@string/pq_intro" />
+
+    <PreferenceCategory
+        android:title="@string/pq_category_sr"
+        settings:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pq_sr_enable"
+            android:title="@string/pq_sr_title"
+            android:summary="@string/pq_sr_summary"
+            android:persistent="false" />
+
+        <com.xiaomi.settings.CustomSeekBarPreference
+            android:key="pq_sr_strength"
+            android:title="@string/pq_strength_title"
+            android:min="0"
+            android:max="10"
+            android:defaultValue="5"
+            android:persistent="false"
+            android:dependency="pq_sr_enable" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pq_category_enhance"
+        settings:allowDividerAbove="true"
+        settings:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pq_aipq_enable"
+            android:title="@string/pq_aipq_title"
+            android:summary="@string/pq_aipq_summary"
+            android:persistent="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pq_shp_enable"
+            android:title="@string/pq_shp_title"
+            android:summary="@string/pq_shp_summary"
+            android:persistent="false" />
+
+        <com.xiaomi.settings.CustomSeekBarPreference
+            android:key="pq_shp_strength"
+            android:title="@string/pq_strength_title"
+            android:min="0"
+            android:max="9"
+            android:defaultValue="4"
+            android:persistent="false"
+            android:dependency="pq_shp_enable" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pq_hdr_enable"
+            android:title="@string/pq_hdr_title"
+            android:summary="@string/pq_hdr_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <androidx.preference.Preference
+        android:key="pq_footer"
+        android:summary="@string/pq_footer"
+        android:selectable="false"
+        settings:iconSpaceReserved="false" />
+
+</PreferenceScreen>
