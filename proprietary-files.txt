@@ -1551,6 +1551,7 @@ system_ext/framework/com.android.hotwordenrollment.common.util.jar|375acb133095c
 vendor/bin/hw/android.hardware.identity-service.mitee@5.0
 vendor/etc/init/android.hardware.identity@5.0-service.mitee.rc
 vendor/etc/permissions/android.hardware.identity_credential.mitee.xml
+vendor/etc/permissions/android.hardware.audio.pro.xml
 vendor/etc/vintf/manifest/android.hardware.identity@5.0-service.mitee.xml
 
 # IMS
