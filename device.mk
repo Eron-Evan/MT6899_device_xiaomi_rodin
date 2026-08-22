@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/xiaomi/rodin
 
+# Basic Call Recorder
+$(call inherit-product, vendor/bcr/bcr.mk)
+
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
@@ -126,7 +129,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     MtkInCallService \
-    DolbyAtmos
+    LunarisDolby
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_config.xml \
