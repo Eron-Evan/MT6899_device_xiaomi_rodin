@@ -2124,9 +2124,7 @@ vendor/lib64/libjpegencoder.so:vendor/lib64/libjpegencoder_rodin.so;FIX_SONAME
 vendor/lib64/libultrahdr.so:vendor/lib64/libultrahdr_rodin.so;FIX_SONAME
 
 # WiFi
-vendor/bin/wlan_assistant
 vendor/etc/init/init.wlan_drv.rc
-vendor/etc/init/wlan_assistant.rc
 vendor/etc/vintf/manifest/CommandService.xml
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/wpa_supplicant.conf

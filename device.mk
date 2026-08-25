@@ -431,6 +431,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
+    wlan_assistant \
     wpa_supplicant
 
 PRODUCT_PACKAGES += \
