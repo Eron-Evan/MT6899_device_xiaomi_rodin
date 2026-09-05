@@ -59,7 +59,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
     hardware/mediatek/libaedv \
     hardware/mediatek/libmtkperf_client \
-    hardware/mediatek/wlan/wifi_hal \
     hardware/xiaomi
 
 # Linker config
@@ -434,12 +433,17 @@ PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant
 
+PRODUCT_PACKAGES += \
+    libwifi-hal-wrapper
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
+
+$(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/rodin/rodin-vendor.mk)
