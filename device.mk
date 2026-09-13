@@ -326,7 +326,8 @@ PRODUCT_PACKAGES += \
     SystemUIOverlayRodin \
     TetheringConfigOverlay \
     SettingsProviderOverlayRodin \
-    UnprocessedAudio
+    UnprocessedAudio \
+    WifiResourcesOverlayRodin
 
 # Parts
 PRODUCT_PACKAGES += \
