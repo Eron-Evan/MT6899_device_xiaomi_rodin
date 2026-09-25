@@ -27,6 +27,7 @@ public class ChargeUtils {
 
     private static final String TAG = "ChargeUtils";
     public static final String BYPASS_CHARGE_NODE = "/sys/class/power_supply/battery/input_suspend";
+    public static final String CHARGE_CURRENT_NODE = "/sys/class/power_supply/battery/constant_charge_current";
     private static final String PREF_BYPASS_CHARGE = "bypass_charge";
 
     // Bypass modes
@@ -52,6 +53,7 @@ public class ChargeUtils {
     public void enableBypassCharge(boolean enable) {
         try {
             FileUtils.writeLine(BYPASS_CHARGE_NODE, enable ? "1" : "0");
+            FileUtils.writeLine(CHARGE_CURRENT_NODE, enable ? "0" : "22000000");
             mSharedPrefs.edit().putBoolean(PREF_BYPASS_CHARGE, enable).apply();
         } catch (Exception e) {
             Log.e(TAG, "Failed to write bypass charge status", e);
@@ -69,6 +71,6 @@ public class ChargeUtils {
     }
     
     public boolean isBypassChargeSupported() {
-        return isNodeAccessible(BYPASS_CHARGE_NODE);
+        return isNodeAccessible(BYPASS_CHARGE_NODE) && isNodeAccessible(CHARGE_CURRENT_NODE);
     }
 }

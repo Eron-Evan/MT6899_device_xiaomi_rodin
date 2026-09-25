@@ -127,3 +127,4 @@ genfscon sysfs /devices/system/cpu/cpu7/online u:object_r:vendor_sysfs_corecontr
 
 # Charging Control
 genfscon sysfs /devices/platform/battery-manager/power_supply/battery/input_suspend u:object_r:vendor_sysfs_chargecontrol:s0
+genfscon sysfs /devices/platform/battery-manager/power_supply/battery/constant_charge_current u:object_r:vendor_sysfs_chargecontrol:s0
