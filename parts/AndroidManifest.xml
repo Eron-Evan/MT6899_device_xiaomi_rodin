@@ -96,6 +96,21 @@
         	android:resource="@string/charge_bypass_summary" />
 	</activity>
 
+        <!-- Bypass Charging QS Tile -->
+        <service
+            android:name=".bypasscharging.BypassChargeTile"
+            android:label="@string/charge_bypass_title"
+            android:icon="@drawable/ic_qs_bypass"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+        </service>
+
         <!-- GameBar AppSelector -->
         <activity android:name=".gamebar.GameBarAppSelectorActivity" />
         <activity android:name=".gamebar.GameBarAppRemoverActivity" />

@@ -42,8 +42,10 @@ public class ChargeUtils {
 
     public boolean isBypassChargeEnabled() {
         try {
-            String value = FileUtils.readOneLine(BYPASS_CHARGE_NODE);
-            return value != null && value.equals("1");
+            // Bypass state is read from constant_charge_current only (0 = bypass on).
+            // input_suspend is still written by enableBypassCharge(), just not read.
+            String value = FileUtils.readOneLine(CHARGE_CURRENT_NODE);
+            return value != null && Long.parseLong(value.trim()) <= 0;
         } catch (Exception e) {
             Log.e(TAG, "Failed to read bypass charge status", e);
             return false;
