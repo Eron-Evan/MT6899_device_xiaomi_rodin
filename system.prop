@@ -8,3 +8,10 @@ ro.vendor.vodata_support=1
 wifi.direct.interface=p2p0
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
+
+# InfinityX
+ro.product.marketname=POCO X7 Pro
+ro.infinity.soc=Mediatek Dimensity 8400 Ultra 5G (MT6899)
+ro.infinity.battery=6550 mAh
+ro.infinity.display=1220 x 2712, 120 Hz
+ro.infinity.camera=50MP + 20MP + 8MP
