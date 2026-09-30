@@ -101,6 +101,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Audio
 TARGET_EXCLUDES_AUDIOFX := true
 PRODUCT_PACKAGES += \
+    android.hardware.audio.parameter_parser.service \
     audio.primary.default \
     audio.bluetooth.default \
     audio_policy.stub \
