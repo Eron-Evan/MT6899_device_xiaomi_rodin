@@ -91,13 +91,16 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/lib_android_keymaster_keymint_utils-v36.so',
         'vendor/lib64/libkeymint-v36.so',
         'vendor/lib64/libkeymint_support-v36.so',
-        'vendor/lib64/libkeymint_remote_prov_support-v36.so',
     ): blob_fixup()
         .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V3-ndk-v36.so')
         .replace_needed('lib_android_keymaster_keymint_utils.so', 'lib_android_keymaster_keymint_utils-v36.so')
         .replace_needed('libkeymint_support.so', 'libkeymint_support-v36.so')
         .replace_needed('libkeymint.so', 'libkeymint-v36.so')
         .replace_needed('libkeymint_remote_prov_support.so', 'libkeymint_remote_prov_support-v36.so'),
+    'vendor/lib64/libkeymint_remote_prov_support-v36.so': blob_fixup()
+        .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V3-ndk-v36.so')
+        .replace_needed('libbase.so', 'libbase-v36.so')
+        .replace_needed('libcppcose_rkp.so', 'libcppcose_rkp-v36.so'),
     'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
         .add_needed('libui_shim.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
