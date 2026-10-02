@@ -66,7 +66,6 @@ persist.vendor.connsys.fm_chipid=connac2x
 persist.vendor.connsys.patch.version=-1
 persist.vendor.connsysfw.enable=false
 ro.hardware.wlan.chip=mt663x
-ro.hardware.wlan.dbs=1
 ro.hardware.wlan.vendor=mediatek
 ro.vendor.connsys.dedicated.log.port=bt,wifi,ics,btmcu,wifimcu
 ro.vendor.connsys.dedicated.log=1

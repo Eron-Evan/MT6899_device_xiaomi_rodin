@@ -8,6 +8,9 @@ ro.vendor.vodata_support=1
 wifi.direct.interface=p2p0
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
+ro.mediatek.wlan.wsc=1
+ro.mediatek.wlan.p2p=1
+wifi.supplicant_scan_interval=120
 
 # InfinityX
 ro.product.marketname=POCO X7 Pro
