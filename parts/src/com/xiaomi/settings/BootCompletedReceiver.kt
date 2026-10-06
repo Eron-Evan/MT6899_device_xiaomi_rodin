@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.Display
 import android.view.Display.HdrCapabilities
 import com.xiaomi.settings.display.ColorService
+import com.xiaomi.settings.thermal.ThermalUtils
 import com.xiaomi.settings.refreshrate.RefreshService
 import com.xiaomi.settings.touchsampling.TouchSamplingService
 import com.xiaomi.settings.touchsampling.TouchSamplingTileService
@@ -51,6 +52,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
             Intent(context, TouchSamplingTileService::class.java),
             UserHandle.CURRENT
         )
+
+        // Thermal
+        ThermalUtils.getInstance(context).startService()
 
         // Override HDR types to enable Dolby Vision
         val displayManager = context.getSystemService(DisplayManager::class.java)
