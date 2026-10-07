@@ -16,7 +16,6 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.os.Process
 import android.os.UserHandle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -208,16 +207,19 @@ class ThermalSettingsFragment : PreferenceFragment() {
         override fun getItemId(position: Int) = 0L
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View =
-            (convertView as? TextView
-                    ?: inflater.inflate(
-                        android.R.layout.simple_spinner_dropdown_item,
-                        parent,
-                        false
-                    ) as TextView)
-                .apply {
-                    setText(items[position])
-                    setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-                }
+            bindItem(convertView, parent, R.layout.thermal_spinner_item, position)
+
+        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View =
+            bindItem(convertView, parent, R.layout.thermal_spinner_dropdown_item, position)
+
+        private fun bindItem(
+            convertView: View?,
+            parent: ViewGroup,
+            layout: Int,
+            position: Int,
+        ): View =
+            (convertView as? TextView ?: inflater.inflate(layout, parent, false) as TextView)
+                .apply { setText(items[position]) }
     }
 
     private inner class AppsAdapter(private val activity: Activity) :
