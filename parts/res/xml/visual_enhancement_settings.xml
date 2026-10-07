@@ -60,6 +60,18 @@
             android:persistent="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/pq_category_compat"
+        settings:allowDividerAbove="true"
+        settings:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pq_gpu_comp"
+            android:title="@string/pq_gpu_comp_title"
+            android:summary="@string/pq_gpu_comp_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <androidx.preference.Preference
         android:key="pq_footer"
         android:summary="@string/pq_footer"

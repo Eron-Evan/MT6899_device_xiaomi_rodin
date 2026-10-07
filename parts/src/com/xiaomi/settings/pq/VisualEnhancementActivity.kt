@@ -13,6 +13,7 @@ import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 import com.xiaomi.settings.CustomSeekBarPreference
 import com.xiaomi.settings.R
+import com.xiaomi.settings.utils.SfUtils
 
 class VisualEnhancementActivity : CollapsingToolbarBaseActivity() {
 
@@ -46,6 +47,17 @@ class VisualEnhancementFragment : PreferenceFragmentCompat() {
 
         // --- Video HDR ---
         bindSwitch("pq_hdr_enable", PqUtils.PROP_HDR_EN, PqUtils.isVideoHdrSupported())
+
+        // --- GPU composition (faded video color workaround) ---
+        findPreference<SwitchPreferenceCompat>("pq_gpu_comp")?.apply {
+            isChecked = SfUtils.isGpuCompositionEnabled()
+            onPreferenceChangeListener =
+                Preference.OnPreferenceChangeListener { _, newValue ->
+                    val ok = SfUtils.setGpuComposition(newValue as Boolean)
+                    if (!ok) toastFail()
+                    ok
+                }
+        }
     }
 
     /** Kapcsoló <-> property: UI a property aktuális értékéből indul. */

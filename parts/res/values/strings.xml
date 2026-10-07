@@ -259,6 +259,9 @@
     <string name="pq_shp_summary">Display sharpness enhancement (TDSHP)</string>
     <string name="pq_hdr_title">Video HDR</string>
     <string name="pq_hdr_summary">HDR rendering for video playback</string>
+    <string name="pq_category_compat">Compatibility</string>
+    <string name="pq_gpu_comp_title">Force GPU composition</string>
+    <string name="pq_gpu_comp_summary">Bypasses the hardware composer. Fixes faded video colors in some apps, but uses more battery</string>
     <string name="pq_strength_title">Strength</string>
     <string name="pq_unsupported">Not supported on this device</string>
     <string name="pq_write_failed">Write failed \u2014 check sepolicy (vendor_mtk_pq_prop)</string>

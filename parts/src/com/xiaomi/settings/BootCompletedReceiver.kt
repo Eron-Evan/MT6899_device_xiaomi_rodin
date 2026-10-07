@@ -20,6 +20,7 @@ import com.xiaomi.settings.refreshrate.RefreshService
 import com.xiaomi.settings.touchsampling.TouchSamplingService
 import com.xiaomi.settings.touchsampling.TouchSamplingTileService
 import com.xiaomi.settings.battery.ChargingLimitService
+import com.xiaomi.settings.utils.SfUtils
 
 /** Everything begins at boot. */
 class BootCompletedReceiver : BroadcastReceiver() {
@@ -70,5 +71,8 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Per App Refresh Rate
         context.startServiceAsUser(Intent(context, RefreshService::class.java), UserHandle.CURRENT)
+
+        // GPU composition workaround for faded video colors
+        SfUtils.applyOnBoot()
     }
 }
