@@ -285,6 +285,9 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libsink.so', 'libsink-mtk.so'),
     'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
         .apktool_patch('blob-patches/ImsService'),
+
+    'vendor/etc/init/tee-supplicant.rc': blob_fixup()
+        .regex_replace('chown system system /dev/ufs-bsg0', 'chown root system /dev/ufs-bsg0'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
