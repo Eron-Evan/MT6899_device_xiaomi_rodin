@@ -26,8 +26,7 @@ import com.xiaomi.settings.utils.FileUtils;
 public class ChargeUtils {
 
     private static final String TAG = "ChargeUtils";
-    public static final String BYPASS_CHARGE_NODE = "/sys/class/power_supply/battery/input_suspend";
-    public static final String CHARGE_CURRENT_NODE = "/sys/class/power_supply/battery/constant_charge_current";
+    public static final String CHARGE_CURRENT_NODE = "/sys/class/power_supply/battery/smart_chg";
     private static final String PREF_BYPASS_CHARGE = "bypass_charge";
 
     // Bypass modes
@@ -42,10 +41,9 @@ public class ChargeUtils {
 
     public boolean isBypassChargeEnabled() {
         try {
-            // Bypass state is read from constant_charge_current only (0 = bypass on).
-            // input_suspend is still written by enableBypassCharge(), just not read.
+            // Bypass state is read from smart_chg only (bit 1 set = bypass on).
             String value = FileUtils.readOneLine(CHARGE_CURRENT_NODE);
-            return value != null && Long.parseLong(value.trim()) <= 0;
+            return value != null && (Integer.parseInt(value.trim()) & 0x2) != 0;
         } catch (Exception e) {
             Log.e(TAG, "Failed to read bypass charge status", e);
             return false;
@@ -54,8 +52,8 @@ public class ChargeUtils {
 
     public void enableBypassCharge(boolean enable) {
         try {
-            FileUtils.writeLine(BYPASS_CHARGE_NODE, enable ? "1" : "0");
-            FileUtils.writeLine(CHARGE_CURRENT_NODE, enable ? "0" : "22000000");
+            // smart_chg: 3 = navigation limit on at 0% (pause charging), 2 = release
+            FileUtils.writeLine(CHARGE_CURRENT_NODE, enable ? "3" : "2");
             mSharedPrefs.edit().putBoolean(PREF_BYPASS_CHARGE, enable).apply();
         } catch (Exception e) {
             Log.e(TAG, "Failed to write bypass charge status", e);
@@ -73,6 +71,6 @@ public class ChargeUtils {
     }
     
     public boolean isBypassChargeSupported() {
-        return isNodeAccessible(BYPASS_CHARGE_NODE) && isNodeAccessible(CHARGE_CURRENT_NODE);
+        return isNodeAccessible(CHARGE_CURRENT_NODE);
     }
 }

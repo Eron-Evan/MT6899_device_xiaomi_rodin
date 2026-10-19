@@ -7,7 +7,7 @@
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:vendor_batterysecret_exec:s0
 
 # Battery
-/sys/class/power_supply/battery/constant_charge_current                                                u:object_r:vendor_sysfs_chargecontrol:s0
+/sys/class/power_supply/battery/smart_chg                                                u:object_r:vendor_sysfs_chargecontrol:s0
 
 # Camera
 /data/vendor/camera(/.*)?                                                                              u:object_r:vendor_camera_data_file:s0
