@@ -3,3 +3,7 @@ on boot
     chmod 0664 /sys/class/power_supply/battery/input_suspend
     chown system system /sys/class/power_supply/battery/smart_chg
     chmod 0664 /sys/class/power_supply/battery/smart_chg
+    chown system system /sys/class/power_supply/battery/constant_charge_current
+    chmod 0664 /sys/class/power_supply/battery/constant_charge_current
+    chown system system /sys/class/power_supply/usb/sic_mode
+    chmod 0664 /sys/class/power_supply/usb/sic_mode

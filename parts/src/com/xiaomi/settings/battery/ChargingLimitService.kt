@@ -17,6 +17,7 @@ import androidx.preference.PreferenceManager
 
 class ChargingLimitService : Service() {
     private var mReceiverRegistered = false
+    private var mWasPlugged = false
 
     private val mBatteryReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -43,6 +44,14 @@ class ChargingLimitService : Service() {
         intent ?: return
         val storageContext = context.createDeviceProtectedStorageContext()
         val prefs = PreferenceManager.getDefaultSharedPreferences(storageContext)
+
+        // Restore the saved power level whenever a charger is plugged in
+        val plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0) != 0
+        if (plugged && !mWasPlugged) {
+            val watts = prefs.getString(BatteryUtils.PREF_CHARGING_POWER, "0")?.toIntOrNull() ?: 0
+            if (watts != 0) BatteryUtils.applyChargingPowerProfileAsync(watts)
+        }
+        mWasPlugged = plugged
 
         if (!prefs.getBoolean(BatteryUtils.PREF_CHARGING_CTRL, false)) {
             BatteryUtils.setChargingSuspendAsync(false)

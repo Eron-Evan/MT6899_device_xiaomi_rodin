@@ -124,4 +124,20 @@
         <item>720p</item>
         <item>Custom…</item>
     </string-array>
+
+    <!-- Charging speed presets -->
+    <string-array name="charging_power_entries">
+        <item>System Default (Auto)</item>
+        <item>33 W - Balanced</item>
+        <item>65 W - Turbo</item>
+        <item>85 W - Performance</item>
+        <item>90 W - Maximum</item>
+    </string-array>
+    <string-array name="charging_power_values" translatable="false">
+        <item>0</item>
+        <item>33</item>
+        <item>65</item>
+        <item>85</item>
+        <item>90</item>
+    </string-array>
 </resources>

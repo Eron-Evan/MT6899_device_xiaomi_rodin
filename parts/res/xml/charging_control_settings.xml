@@ -21,4 +21,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/charging_power_category"
+        app:allowDividerAbove="true">
+
+        <ListPreference
+            android:key="charging_power_profile"
+            android:title="@string/charging_power_title"
+            android:entries="@array/charging_power_entries"
+            android:entryValues="@array/charging_power_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

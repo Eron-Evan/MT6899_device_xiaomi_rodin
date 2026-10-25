@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.BatteryManager
 import android.os.Bundle
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import com.android.settingslib.widget.SliderPreference
 import com.android.settingslib.widget.MainSwitchPreference
@@ -39,12 +40,25 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
             updateSummary(value)
         }
 
+        findPreference<ListPreference>(BatteryUtils.PREF_CHARGING_POWER)?.apply {
+            if (!BatteryUtils.isPowerProfileSupported()) {
+                isVisible = false
+            } else {
+                onPreferenceChangeListener = this@ChargingControlFragment
+            }
+        }
+
         mMasterSwitch = findPreference<MainSwitchPreference>(BatteryUtils.PREF_CHARGING_CTRL)?.apply {
             onPreferenceChangeListener = this@ChargingControlFragment
         }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
+        if (preference.key == BatteryUtils.PREF_CHARGING_POWER) {
+            BatteryUtils.applyChargingPowerProfileAsync((newValue as String).toIntOrNull() ?: 0)
+            return true
+        }
+
         var isEnabled = mMasterSwitch?.isChecked ?: false
         var limit = mLimitPref?.value ?: 80
 
