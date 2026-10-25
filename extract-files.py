@@ -85,6 +85,11 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     (
+        'vendor/lib64/libbluetooth_audio_session_aidl_mtk.so',
+        'vendor/lib64/android.hardware.bluetooth.audio-impl-mediatek.so',
+    ): blob_fixup()
+        .replace_needed('vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so', 'vendor.mediatek.hardware.bluetooth.audio-V1-ndk-prebuilt.so'),
+    (
         'odm/lib64/libmt_mitee.so',
         'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee',
         'odm/lib64/libgoogleid.so',
@@ -203,7 +208,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libmicamera_aidl_provider.so',
         'odm/lib64/libmiXmlParser.so',
     ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
+        .replace_needed('vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so', 'vendor.mediatek.hardware.bluetooth.audio-V1-ndk-prebuilt.so'),
     'vendor/lib64/libdlbdsservice.so': blob_fixup()
         .replace_needed("libstagefright_foundation.so", "libstagefright_foundation-v33.so"),
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
