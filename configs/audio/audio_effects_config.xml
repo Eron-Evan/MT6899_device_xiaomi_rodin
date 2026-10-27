@@ -50,6 +50,7 @@
         <library name="dvl" path="libdlbvolaidl.so"/>
         <library name="spatializer" path="libswspatializeraidl.so"/>
         <library name="gamedap" path="libswgamedapaidl.so"/>
+        <library name="v4a_aidl" path="libv4a_aidl.so"/>
     </libraries>
     <!-- list of effects to load.
          Each "effect" element must contain a "name", "library" and a "uuid" attribute.
@@ -96,6 +97,7 @@
         <effect name="dlb_alarm_listener" library="dvl" uuid="6aff229c-30c6-4cc8-9957-dbfe5c1bd7f6"/>
         <effect name="spatializer" library="spatializer" uuid="ccd4cf09-a79d-46c2-9aae-06a1698d6c8f"/>
         <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
+        <effect name="v4a_standard_aidl" library="v4a_aidl" uuid="90380da3-8536-4744-a6a3-5731970e640f" type="7261676f-6d75-7369-6364-28e2fd3ac39e"/>
     </effects>
     <postprocess>
         <stream type="music">

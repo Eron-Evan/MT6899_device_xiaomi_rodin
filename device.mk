@@ -446,5 +446,8 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,mediatek_wifi_hal,use_pre_baklava_qpr0_struct,true)
 
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+TARGET_USES_VIPER_AIDL := true
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/rodin/rodin-vendor.mk)
