@@ -14,69 +14,54 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
     android:paddingBottom="4dp"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingTop="4dp">
 
-    <!-- Main row content -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
         android:layout_gravity="center_vertical"
-        android:orientation="horizontal">
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textAlignment="viewStart"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:textColor="?android:attr/textColorPrimary" />
 
-        <ImageView
-            android:id="@+id/app_icon"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="@android:dimen/app_icon_size"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@null"
-            android:scaleType="centerInside" />
+    <Spinner
+        android:id="@+id/app_mode"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:dropDownWidth="136dp"
+        android:minHeight="0dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="12dp"
+        android:spinnerMode="dropdown" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/app_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:ellipsize="marquee"
-                android:singleLine="true"
-                android:textAlignment="viewStart"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium"
-                android:textColor="?android:attr/textColorPrimary" />
-
-            <Spinner
-                android:id="@+id/app_mode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- State badge — bottom-right corner, auto-hides after 5s -->
     <ImageView
         android:id="@+id/state"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="4dp"
-        android:alpha="0.85"
-        android:scaleType="fitCenter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
         android:src="@drawable/ic_resolution_default"
         android:visibility="gone" />
 
-</FrameLayout>
+</LinearLayout>

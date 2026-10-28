@@ -316,12 +316,19 @@ public class ResolutionSettingsFragment extends PreferenceFragment
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView view = convertView != null
+            return bindItem(convertView, parent, R.layout.thermal_spinner_item, position);
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return bindItem(convertView, parent, R.layout.thermal_spinner_dropdown_item, position);
+        }
+
+        private View bindItem(View convertView, ViewGroup parent, int layout, int position) {
+            TextView view = convertView instanceof TextView
                     ? (TextView) convertView
-                    : (TextView) inflater.inflate(
-                            android.R.layout.simple_spinner_dropdown_item, parent, false);
+                    : (TextView) inflater.inflate(layout, parent, false);
             view.setText(items[position]);
-            view.setTextSize(14f);
             return view;
         }
     }
