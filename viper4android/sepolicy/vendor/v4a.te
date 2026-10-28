@@ -1,0 +1,8 @@
+type viper_control_service, service_manager_type;
+
+add_service(hal_audio_default, viper_control_service)
+allow hal_audio_default servicemanager:binder { call transfer };
+
+allow priv_app servicemanager:service_manager list;
+allow priv_app viper_control_service:service_manager find;
+allow priv_app hal_audio_default:binder { call transfer };
