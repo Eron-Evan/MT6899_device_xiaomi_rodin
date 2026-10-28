@@ -29,10 +29,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xiaomi.settings.R;
+import com.xiaomi.settings.utils.SfUtils;
 
 /**
  * System-wide resolution selector.
@@ -83,6 +85,17 @@ public class SystemResolutionSettingsFragment extends Fragment
         int current = mResolutionUtils.getGlobalState();
         mModeSpinner.setSelection(current, false);
         updateSummary(current);
+
+        Switch gpuSwitch = view.findViewById(R.id.gpu_composition_switch);
+        gpuSwitch.setChecked(SfUtils.INSTANCE.isGpuCompositionEnabled());
+        gpuSwitch.setOnClickListener(v -> {
+            boolean checked = gpuSwitch.isChecked();
+            if (!SfUtils.INSTANCE.setGpuComposition(checked)) {
+                Toast.makeText(getActivity(), R.string.pq_write_failed,
+                        Toast.LENGTH_SHORT).show();
+                gpuSwitch.setChecked(!checked);
+            }
+        });
     }
 
     @Override

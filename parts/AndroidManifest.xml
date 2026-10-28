@@ -353,12 +353,6 @@
             android:theme="@style/Theme.SubSettingsBase"
             android:exported="false" />
 
-        <!-- Visual Enhancement (MiraVision PQ) -->
-        <activity
-            android:name=".pq.VisualEnhancementActivity"
-            android:label="@string/pq_title"
-            android:theme="@style/Theme.SubSettingsBase"
-            android:exported="false" />
 
     </application>
 </manifest>

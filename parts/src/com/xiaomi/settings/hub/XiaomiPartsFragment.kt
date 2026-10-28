@@ -26,7 +26,6 @@ import com.xiaomi.settings.aboutme.AboutMeActivity
 import com.xiaomi.settings.autohbm.AutoHbmActivity
 import com.xiaomi.settings.corecontrol.CoreControlActivity
 import com.xiaomi.settings.gamebar.GameBarSettingsActivity
-import com.xiaomi.settings.pq.VisualEnhancementActivity
 import com.xiaomi.settings.resolution.ResolutionActivity
 import com.xiaomi.settings.resolution.SystemResolutionActivity
 import com.xiaomi.settings.speaker.ClearSpeakerActivity
@@ -78,11 +77,6 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
 
-        findPreference<Preference>(KEY_VISUAL)?.setOnPreferenceClickListener {
-            startActivity(Intent(context, VisualEnhancementActivity::class.java))
-            true
-        }
-
         findPreference<Preference>(KEY_ABOUT_ME)?.setOnPreferenceClickListener {
             startActivity(Intent(context, AboutMeActivity::class.java))
             true
@@ -103,7 +97,6 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
         private const val KEY_ABOUT_ME = "parts_about_me"
-        private const val KEY_VISUAL = "parts_visual"
         private const val KEY_PER_APP_REFRESH_RATE = "parts_per_app_refresh_rate"
     }
 }

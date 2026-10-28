@@ -61,12 +61,6 @@
             android:summary="@string/upscale_summary"
             android:icon="@drawable/ic_resolution_custom" />
 
-        <Preference
-            android:key="parts_visual"
-            android:title="@string/pq_title"
-            android:summary="@string/pq_summary"
-            android:icon="@drawable/ic_visual_enhancement" />
-
     </PreferenceCategory>
 
     <PreferenceCategory

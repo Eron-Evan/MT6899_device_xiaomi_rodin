@@ -247,27 +247,9 @@
     <string name="about_me_donate2_title">Saweria</string>
     <string name="about_me_donate2_summary">https://saweria.co/MnzzProject</string>
 
-    <!-- Visual Enhancement (MiraVision PQ) -->
-    <string name="pq_title">Visual Enhancement</string>
-    <string name="pq_summary">Super Resolution, AI picture quality, sharpness, video HDR</string>
-    <string name="pq_intro">Hardware picture-quality features of the MediaTek MiraVision engine. Settings persist across reboots automatically.</string>
-    <string name="pq_category_sr">Super Resolution</string>
-    <string name="pq_sr_title">Super Resolution</string>
-    <string name="pq_sr_summary">Upscale and sharpen low-resolution video content</string>
-    <string name="pq_category_enhance">Picture enhancement</string>
-    <string name="pq_aipq_title">AI Region PQ</string>
-    <string name="pq_aipq_summary">Adaptive AI picture optimization per screen region</string>
-    <string name="pq_shp_title">Sharpness</string>
-    <string name="pq_shp_summary">Display sharpness enhancement (TDSHP)</string>
-    <string name="pq_hdr_title">Video HDR</string>
-    <string name="pq_hdr_summary">HDR rendering for video playback</string>
-    <string name="pq_category_compat">Compatibility</string>
     <string name="pq_gpu_comp_title">Force GPU composition</string>
     <string name="pq_gpu_comp_summary">Bypasses the hardware composer. Fixes faded video colors in some apps, but uses more battery</string>
-    <string name="pq_strength_title">Strength</string>
-    <string name="pq_unsupported">Not supported on this device</string>
-    <string name="pq_write_failed">Write failed \u2014 check sepolicy (vendor_mtk_pq_prop)</string>
-    <string name="pq_footer">Some video apps pick up changes only after the app is restarted. Very high sharpness can cause halo artifacts around text.</string>
+    <string name="pq_write_failed">Failed to apply setting</string>
 
     <!-- Per-app refresh rate -->
     <string name="refresh_title">Per-app refresh rate</string>
