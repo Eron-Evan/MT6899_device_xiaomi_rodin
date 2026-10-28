@@ -32,6 +32,7 @@ import com.xiaomi.settings.gamebar.GameBarSettingsActivity
 import com.xiaomi.settings.resolution.ResolutionActivity
 import com.xiaomi.settings.resolution.SystemResolutionActivity
 import com.xiaomi.settings.speaker.ClearSpeakerActivity
+import com.xiaomi.settings.thermal.ThermalSettingsActivity
 import com.xiaomi.settings.refreshrate.RefreshActivity
 import com.xiaomi.settings.touchsampling.TouchSamplingSettingsActivity
 
@@ -75,6 +76,11 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
 
+        findPreference<Preference>(KEY_THERMAL_PROFILES)?.setOnPreferenceClickListener {
+            startActivity(Intent(context, ThermalSettingsActivity::class.java))
+            true
+        }
+
         findPreference<Preference>(KEY_CLEAR_SPEAKER)?.setOnPreferenceClickListener {
             startActivity(Intent(context, ClearSpeakerActivity::class.java))
             true
@@ -115,6 +121,7 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_SYSTEM_RESOLUTION = "parts_system_resolution"
         private const val KEY_PER_APP_RESOLUTION = "parts_per_app_resolution"
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
+        private const val KEY_THERMAL_PROFILES = "parts_thermal_profiles"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
         private const val KEY_ABOUT_ME = "parts_about_me"
         private const val KEY_CIT = "parts_cit"
