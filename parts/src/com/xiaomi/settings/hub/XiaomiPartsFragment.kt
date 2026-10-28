@@ -17,6 +17,9 @@
 package com.xiaomi.settings.hub
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.widget.Toast
 import android.os.Bundle
 import androidx.preference.Preference
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
@@ -77,6 +80,23 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
 
+        findPreference<Preference>(KEY_CIT)?.setOnPreferenceClickListener {
+            val ctx = requireContext()
+            try {
+                ctx.packageManager.getPackageInfo("com.miui.cit", 0)
+                // Same broadcast the dialer sends for *#*#6484#*#*
+                ctx.sendBroadcast(
+                    Intent(
+                        "android.provider.Telephony.SECRET_CODE",
+                        Uri.parse("android_secret_code://6484")
+                    )
+                )
+            } catch (e: PackageManager.NameNotFoundException) {
+                Toast.makeText(ctx, R.string.cit_not_installed, Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
+
         findPreference<Preference>(KEY_ABOUT_ME)?.setOnPreferenceClickListener {
             startActivity(Intent(context, AboutMeActivity::class.java))
             true
@@ -97,6 +117,7 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
         private const val KEY_ABOUT_ME = "parts_about_me"
+        private const val KEY_CIT = "parts_cit"
         private const val KEY_PER_APP_REFRESH_RATE = "parts_per_app_refresh_rate"
     }
 }

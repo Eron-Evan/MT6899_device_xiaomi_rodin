@@ -24,6 +24,12 @@
             android:summary="@string/charging_control_summary"
             android:icon="@drawable/ic_charging_control" />
 
+        <Preference
+            android:key="parts_cit"
+            android:title="@string/cit_title"
+            android:summary="@string/cit_summary"
+            android:icon="@drawable/ic_cit" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
