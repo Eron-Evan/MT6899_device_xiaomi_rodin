@@ -259,9 +259,9 @@ class ThermalSettingsFragment : PreferenceFragment() {
 
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val entry = parent?.tag as? AppEntry ?: return
-            if (entry.state.id != position) {
+            if (thermalUtils.getStateForPackage(entry.packageName).id != position) {
                 thermalUtils.writePackage(entry.packageName, position)
-                notifyItemChanged(position)
+                entries.indexOf(entry).takeIf { it >= 0 }?.let { notifyItemChanged(it) }
             }
         }
 
